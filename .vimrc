@@ -37,6 +37,7 @@ let g:go_term_enabled = 1
 let g:go_term_mode = "silent keepalt rightbelow 15 split"
 let g:go_def_reuse_buffer = 1
 
+
 map <C-n> :cnext<cr>
 map <C-m> :cprevious<cr>
 nnoremap <leader>e :cclose<cr>
