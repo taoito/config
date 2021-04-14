@@ -29,14 +29,16 @@ nmap <leader>q :q<cr>
 " Fast Go Build
 nmap <leader>b :GoBuild<cr>
 
-" Fast Go Run
-nmap <leader>g :GoRun<cr>
+" Fast Go Run | Save first | Switch to Terminal afterwards
+nmap <leader>g :w <bar> :GoRun <cr>:wincmd w<cr>
 
 " Terminal settings
 let g:go_term_enabled = 1
 let g:go_term_mode = "silent keepalt rightbelow 15 split"
-let g:go_def_reuse_buffer = 1
+let g:go_test_show_name=1
 
+" Delete all Buffers except the current one
+command! BufOnly silent! execute "%bd|e#|bd#"
 
 map <C-n> :cnext<cr>
 map <C-m> :cprevious<cr>
@@ -61,6 +63,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:netrw_liststyle = 3
 " remove dir banner 
 let g:netrw_banner = 0
+
+
 
 
 " relative line numbers
@@ -148,7 +152,8 @@ map <silent> <leader><space> :noh<cr>
 " Always show the status line
 set laststatus=2
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ \ Line:\ %l\ \ Column:\ %c
 
 " store history in .un~ file to undo even after reopen files
 set undofile
