@@ -1,6 +1,9 @@
 " remember lines of history
 set history=500
 
+" set title of term
+set title
+
 filetype plugin on
 
 filetype indent on
@@ -42,7 +45,8 @@ command! BufOnly silent! execute "%bd|e#|bd#"
 
 map <C-n> :cnext<cr>
 map <C-m> :cprevious<cr>
-nnoremap <leader>e :cclose<cr>
+" nnoremap <leader>e :cclose<cr>
+nnoremap <leader>e :BufOnly<cr>
 
 " Fast Go Test
 nmap <leader>t :GoTest<cr>
@@ -134,9 +138,8 @@ set tabstop=4
 set ai
 set si
 
-set wrap
-set textwidth=79
-set colorcolumn=85
+set wrap linebreak
+set colorcolumn=81
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
